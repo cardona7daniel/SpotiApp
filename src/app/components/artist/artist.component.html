@@ -1,0 +1,63 @@
+<div class="container top30">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <img [src]="artista.images | sinfoto" alt="*" class="img-thumbnail img-circle">
+    </div>
+    <div class="col-md-8 text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>{{artista.name}}</h3>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button [routerLink]="['/search']" type="button" class="btn btn-success">Regresar</button>
+          <a [href]="artista.external_urls?.spotify" class="btn btn-outline-success" target="_blank">Abrir en Spotify</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <h3 class="top30">
+    <i>Top tracks</i>
+  </h3>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Imagen</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Popularidad</th>
+          <th scope="col">Escuchar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let track of canciones; let i = index">
+          <td>
+            {{i + 1}}
+          </td>
+          <td>
+            <img [src]="track.album.images | sinfoto" alt="*" class="img-ancho">
+          </td>
+          <td>
+            <h4>
+              <small>{{track.name}}</small>
+            </h4>
+          </td>
+          <td>{{track.popularity}}%</td>
+          <td>
+            <!-- <audio controls>
+                <source [src]="track.preview_url"/>
+                Tu navegador es muy viejo
+              </audio> -->
+            <iframe [src]="track.uri | domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true"
+              allow="encrypted-media"></iframe>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

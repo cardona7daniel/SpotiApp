@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="../../../../assets/img/banner-ico.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      SpotiApp
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <!-- Para que esot funcione tengo que tener activo el hash en el app.routes -->
+          <!-- <a class="nav-item nav-link active" href="#/home">Inicio</a>
+          <a class="nav-item nav-link" href="#/search">Buscar</a> -->
+          <!-- <a class="nav-item nav-link active" routerLink="home">Inicio</a>
+          <a class="nav-item nav-link" routerLink="search">Buscar</a> -->
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['home']">Inicio</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['search']">Buscar</a>
+          </li>
+        </div>
+      </div>
+  </nav>
